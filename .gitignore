@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# Terraform
+**/.terraform
+**/terraform.tfstate
+**/terraform.tfstate*
+
+# Helm
+helm/**/charts/*.tgz
+
+# SSL
+assets/ssl/**/*.crt
+assets/ssl/**/*.csr
+assets/ssl/**/*.key
+
+# GCP
+terraform/**/gcp-account.json
+terraform/**/gsa/*.json
+*.json
+
+# Rush
+*.rush
+terraform/dev/.terraform.lock.hcl

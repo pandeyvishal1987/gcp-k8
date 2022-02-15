@@ -1,0 +1,48 @@
+repos:
+  # Global
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: check-yaml ### Control YAML format
+        args: [--allow-multiple-documents]
+        exclude: ^helm/(istio-1.9.0|cert-manager-webhook-ovh)/
+      - id: end-of-file-fixer ###  Fix end of file with one line
+      - id: trailing-whitespace ### Remove end of line spaces
+      - id: check-added-large-files ### Check files size to add only 500ko max
+      - id: check-merge-conflict
+
+  # Terraform
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.51.0
+    hooks:
+      - id: terraform_docs ### Inserts Terraform documentation into README.md
+      - id: terraform_fmt
+      - id: terraform_tflint
+        args:
+          # - "--args=--loglevel=info"
+          - "--args=--only=terraform_deprecated_interpolation"
+          - "--args=--only=terraform_deprecated_index"
+          - "--args=--only=terraform_unused_declarations"
+          - "--args=--only=terraform_comment_syntax"
+          - "--args=--only=terraform_documented_outputs"
+          - "--args=--only=terraform_documented_variables"
+          - "--args=--only=terraform_typed_variables"
+          - "--args=--only=terraform_module_pinned_source"
+          - "--args=--only=terraform_naming_convention"
+          - "--args=--only=terraform_required_version"
+          - "--args=--only=terraform_required_providers"
+          - "--args=--only=terraform_standard_module_structure"
+          - "--args=--only=terraform_workspace_remote"
+      - id: terraform_validate
+
+  # HELM
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.12
+    hooks:
+    - id: helmlint
+
+  # Makefile
+  - repo: https://github.com/cloudposse/pre-commit-makefile
+    rev: v0.2.0
+    hooks:
+      - id: makefile-doc
