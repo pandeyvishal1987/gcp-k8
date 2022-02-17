@@ -5,19 +5,19 @@
 variable "project_id" {
   type        = string
   description = "The GCP Project ID associated with the project. It can be set by using TF_VAR_project_id in your ~/.zprofile"
-  default = "vishal-jenkins-project"
+  default     = "vishal-jenkins-project"
 }
 
 variable "namespace" {
   type        = string
   description = "Project name that will be use to identify the resources"
-  default = "devops"
+  default     = "devops"
 }
 
 variable "stage" {
   type        = string
   description = "Stage/environment name to tag and suffix the infrastructure composants"
-  default = "practice"
+  default     = "practice"
 }
 
 #############################
@@ -27,11 +27,13 @@ variable "stage" {
 variable "network_name" {
   type        = string
   description = "Network Name"
+  default     = "gke-network"
 }
 
 variable "subnets_names" {
-  type        = list(string)
+  type        = string
   description = "Subnets Names"
+  default     = "gke-subnet"
 }
 
 ############################
@@ -41,34 +43,31 @@ variable "subnets_names" {
 variable "default_region" {
   type        = string
   description = "Default GCP Region where to deploy the infrastructure"
-  default = "us-east1"
+  default     = "us-central1"
 }
 
-variable "default_multi_region_location" {
-  type        = string
-  description = "Default location for multi-regional resources like GCS"
-  default     = "US"
-}
+# variable "default_multi_region_location" {
+#   type        = string
+#   description = "Default location for multi-regional resources like GCS"
+#   default     = "US"
+# }
 
-variable "default_zones" {
-  type        = list(string)
-  description = "Default GCP Zones where to deploy the infrastructure"
-}
+# variable "default_zones" {
+#   type        = list(string)
+#   description = "Default GCP Zones where to deploy the infrastructure"
+#   default     = ["us-east-1-b,us-east-1-c,us-east-1-d"]
+# }
 
-variable "default_multi_region_location" {
-  type        = string
-  description = "Default location for multi-regional resources like GCS"
-}
 
 #############################
 # Cluster
 #############################
 
-variable "kubernetes_version" {
-  type        = string
-  description = "Control Plane Master version"
-  default     = "1.20.8-gke.700"
-}
+# variable "kubernetes_version" {
+#   type        = string
+#   description = "Control Plane Master version"
+#   default     = "1.20.8-gke.700"
+# }
 
 variable "min_count" {
   type        = number
@@ -103,7 +102,7 @@ variable "default_max_pods_per_node" {
 variable "machine_type" {
   type        = string
   description = "Node Machine Type"
-  default     = "n1-standard-4"
+  default     = "n1-standard-2"
 }
 
 variable "local_ssd_count" {
@@ -124,17 +123,28 @@ variable "disk_type" {
   default     = "pd-standard"
 }
 
+variable "ip_range_pods_name" {
+  type        = string
+  description = "The secondary ip range to use for pods"
+  default     = "ip-range-pods"
+}
+variable "ip_range_services_name" {
+  type        = string
+  description = "The secondary ip range to use for services"
+  default     = "ip-range-services"
+}
+
 #############################
 # Labels
 #############################
 
-variable "labels" {
-  type        = map(string)
-  description = "Default labels to associate to these resources"
-  default = {
-    # Only lowercase keys allowed
-    team         = "devops"
-    terraform    = "true"
-    
-  }
-}
+# variable "labels" {
+#   type        = map(string)
+#   description = "Default labels to associate to these resources"
+#   default = {
+#     # Only lowercase keys allowed
+#     team      = "devops"
+#     terraform = "true"
+
+#   }
+# }

@@ -21,4 +21,7 @@ terraform/**/gsa/*.json
 
 # Rush
 *.rush
-terraform/dev/.terraform.lock.hcl
+.terraform.lock.hcl
+#kubeconfig
+kubeconfig-*
+kubeconfig-practice
