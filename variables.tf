@@ -36,6 +36,36 @@ variable "subnets_names" {
   default     = "gke-subnet"
 }
 
+#############################
+# SG
+#############################
+
+variable "protocol" {
+  type        = string
+  description = "Firewall Rule protocol"
+  default     = "tcp"
+}
+
+variable "ports" {
+  type        = list(string)
+  description = "Firewall Rule direction"
+  default     = ["30000-32767"]
+}
+
+variable "allowed_ips" {
+  type        = list(string)
+  description = "Firewall Rule allowed IPs"
+  default     = ["0.0.0.0/0"]
+}
+
+
+variable "direction" {
+  type        = string
+  description = "Firewall Rule direction"
+  default     = "INGRESS"
+}
+
+
 ############################
 # Location
 #############################

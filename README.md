@@ -24,6 +24,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_fleet_sg"></a> [fleet\_sg](#module\_fleet\_sg) | terraform-google-modules/network/google//modules/firewall-rules | n/a |
 | <a name="module_gcp_network"></a> [gcp\_network](#module\_gcp\_network) | terraform-google-modules/network/google | ~> 4.0.1 |
 | <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google//modules/private-cluster | 18.0.0 |
 | <a name="module_gke_auth"></a> [gke\_auth](#module\_gke\_auth) | terraform-google-modules/kubernetes-engine/google//modules/auth | n/a |
@@ -45,8 +46,10 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_allowed_ips"></a> [allowed\_ips](#input\_allowed\_ips) | Firewall Rule allowed IPs | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 | <a name="input_default_max_pods_per_node"></a> [default\_max\_pods\_per\_node](#input\_default\_max\_pods\_per\_node) | Default max pods per node | `number` | `30` | no |
 | <a name="input_default_region"></a> [default\_region](#input\_default\_region) | Default GCP Region where to deploy the infrastructure | `string` | `"us-central1"` | no |
+| <a name="input_direction"></a> [direction](#input\_direction) | Firewall Rule direction | `string` | `"INGRESS"` | no |
 | <a name="input_disk_size_gb"></a> [disk\_size\_gb](#input\_disk\_size\_gb) | Disk size in GB | `number` | `50` | no |
 | <a name="input_disk_type"></a> [disk\_type](#input\_disk\_type) | Disk type | `string` | `"pd-standard"` | no |
 | <a name="input_initial_node_count"></a> [initial\_node\_count](#input\_initial\_node\_count) | Initial Nodes count | `number` | `1` | no |
@@ -58,8 +61,10 @@
 | <a name="input_min_count"></a> [min\_count](#input\_min\_count) | Minimum Nodes | `number` | `1` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Project name that will be use to identify the resources | `string` | `"devops"` | no |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | Network Name | `string` | `"gke-network"` | no |
+| <a name="input_ports"></a> [ports](#input\_ports) | Firewall Rule direction | `list(string)` | <pre>[<br>  "30000-32767"<br>]</pre> | no |
 | <a name="input_preemptible"></a> [preemptible](#input\_preemptible) | Whether to use preemptible nodes | `bool` | `true` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP Project ID associated with the project. It can be set by using TF\_VAR\_project\_id in your ~/.zprofile | `string` | `"vishal-jenkins-project"` | no |
+| <a name="input_protocol"></a> [protocol](#input\_protocol) | Firewall Rule protocol | `string` | `"tcp"` | no |
 | <a name="input_stage"></a> [stage](#input\_stage) | Stage/environment name to tag and suffix the infrastructure composants | `string` | `"practice"` | no |
 | <a name="input_subnets_names"></a> [subnets\_names](#input\_subnets\_names) | Subnets Names | `string` | `"gke-subnet"` | no |
 
