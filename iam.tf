@@ -9,38 +9,38 @@ resource "google_service_account" "gsa" {
 }
 
 # Attach the Kubernetes Admin role
-resource "google_project_iam_member" "iam_gke_admin" {
-  project = var.project_id
-  role    = "roles/container.admin"
-  member  = "serviceAccount:${google_service_account.gsa.email}"
-}
+# resource "google_project_iam_member" "iam_gke_admin" {
+#   project = var.project_id
+#   role    = "roles/container.admin"
+#   member  = "serviceAccount:${google_service_account.gsa.email}"
+# }
 
 # Attach the Metrics roles
-resource "google_project_iam_member" "iam_metrics_writer" {
-  project = var.project_id
-  role    = "roles/monitoring.metricWriter"
-  member  = "serviceAccount:${google_service_account.gsa.email}"
-}
+# resource "google_project_iam_member" "iam_metrics_writer" {
+#   project = var.project_id
+#   role    = "roles/monitoring.metricWriter"
+#   member  = "serviceAccount:${google_service_account.gsa.email}"
+# }
 
-resource "google_project_iam_member" "iam_metrics_viewer" {
-  project = var.project_id
-  role    = "roles/monitoring.viewer"
-  member  = "serviceAccount:${google_service_account.gsa.email}"
-}
+# resource "google_project_iam_member" "iam_metrics_viewer" {
+#   project = var.project_id
+#   role    = "roles/monitoring.viewer"
+#   member  = "serviceAccount:${google_service_account.gsa.email}"
+# }
 
-# Attach the Logs role
-resource "google_project_iam_member" "iam_logs_writer" {
-  project = var.project_id
-  role    = "roles/logging.logWriter"
-  member  = "serviceAccount:${google_service_account.gsa.email}"
-}
+# # Attach the Logs role
+# resource "google_project_iam_member" "iam_logs_writer" {
+#   project = var.project_id
+#   role    = "roles/logging.logWriter"
+#   member  = "serviceAccount:${google_service_account.gsa.email}"
+# }
 
-# Attach the Logs role
-resource "google_project_iam_member" "iam_stackdriver_writer" {
-  project = var.project_id
-  role    = "roles/stackdriver.resourceMetadata.writer"
-  member  = "serviceAccount:${google_service_account.gsa.email}"
-}
+# # Attach the Logs role
+# resource "google_project_iam_member" "iam_stackdriver_writer" {
+#   project = var.project_id
+#   role    = "roles/stackdriver.resourceMetadata.writer"
+#   member  = "serviceAccount:${google_service_account.gsa.email}"
+# }
 
 # # Attach the Storage Admin Bucket role
 # resource "google_storage_bucket_iam_member" "iam_registry_admin" {

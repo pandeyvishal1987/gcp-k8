@@ -1,7 +1,7 @@
 provider "google" {
   project     = var.project_id
   region      = var.default_region
-  credentials = file("${path.root}/vishal-jenkins-project-tf.json")
+  credentials = file("${path.root}/vishal-practice-project.json")
 }
 
 # provider "kubernetes" {

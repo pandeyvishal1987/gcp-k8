@@ -5,7 +5,7 @@
 variable "project_id" {
   type        = string
   description = "The GCP Project ID associated with the project. It can be set by using TF_VAR_project_id in your ~/.zprofile"
-  default     = "vishal-jenkins-project"
+  default     = "vishal-practice-project-343009"
 }
 
 variable "namespace" {
@@ -49,7 +49,7 @@ variable "protocol" {
 variable "ports" {
   type        = list(string)
   description = "Firewall Rule direction"
-  default     = ["30000-32767"]
+  default     = ["30000-32767","9090","8080"]
 }
 
 variable "allowed_ips" {
